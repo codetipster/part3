@@ -1,9 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors')
 const app = express();
 
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
+app.use(express.static('dist')); //serve static files from dist folder
 
 //configuration to show body of post request when using morgan for logging requests
 morgan.token('body', (req) => JSON.stringify(req.body));
@@ -31,6 +34,8 @@ let persons = [
       "number": "39-23-6423122"
     }
 ]
+
+
 
 
 app.get('/info', (req, res) => {
@@ -81,7 +86,7 @@ app.post('/api/persons', (req, res) => {
 
 })
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 })
