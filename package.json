@@ -7,13 +7,15 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test"
   },
   "author": "Samuel Nzekwe",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "mongoose": "^8.8.4",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
